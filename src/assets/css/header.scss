@@ -1,0 +1,52 @@
+
+@mixin iconHead($name) {
+  background-image: url('../images/icon_head.png');
+  background-repeat: no-repeat;
+
+  @if none==$name {}
+
+  @else if (note==$name) {
+    background-position: -81px 14px;
+  }
+
+  @else if (person==$name) {
+    background-position: -10px -10px;
+  }
+
+  @else if (shopcar==$name) {
+    background-position: -45px -10px;
+  }
+}
+
+
+.header {
+  height: 75px;
+  line-height: 75px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  color: #7a8087;
+
+  .center {
+
+    .logo {
+      display: inline-block;
+      height: 74px;
+      line-height: 74px;
+      padding-left: 35px;
+      font-size: 20px;
+      color: #333;
+      @include iconHead(note);
+    }
+
+    ul {
+      display: inline-block;
+      margin-left: 30px;
+      width: 525px;
+    }
+  }
+}
+
+body :global(.ant-menu-inline .ant-menu-submenu .ant-menu-submenu-title) {
+  height: 74px !important;
+  line-height: 74px !important;
+}
