@@ -10,23 +10,23 @@ export default class Header extends React.Component {
       activeNav : '/',
       navList: [{ 
         path: '/',
-        name: '首页'
+        name: 'Home'
       },
       { 
         path: '/primary',
-        name: '音乐初级闯关'
+        name: 'Primary'
       },
       { 
-        path: '/middle',
-        name: '音乐中级闯关'
+        path: '/senior',
+        name: 'Senior'
       },
       { 
         path: '/grade',
-        name: '我的闯关'
+        name: 'My Grade'
       },
       { 
         path: '/download',
-        name: '下载客户端'
+        name: 'Download'
       }]
     }
   }
@@ -35,7 +35,7 @@ export default class Header extends React.Component {
     return (
       <header className='header'>
         <div className='center'>
-          <span className="logo">音乐系统</span>
+          <span className="logo">React-Music</span>
           <Menu mode='horizontal' selectedKeys={[this.state.activeNav]} onClick={this.handlerNav}>
             {this.state.navList.map(item => {
               return (<Menu.Item key={item.path}>

@@ -36,7 +36,7 @@ const appRouter = [
     component: Commodity
   },
   { 
-    path: '/middle',
+    path: '/senior',
     component: Commodity
   },
   { 

@@ -8,7 +8,7 @@ export default class Footer extends React.Component{
       <footer>
         <Row>
           <Col span={24} className='footer'>
-            &copy;&nbsp;2019 音乐系统。All Rights Reserved.
+            &copy;&nbsp;2019 Music System. All Rights Reserved.
           </Col>
         </Row>
     </footer>
