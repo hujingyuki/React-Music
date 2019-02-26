@@ -18,7 +18,7 @@ export default class Swiper extends React.Component {
 
   render(){
     return (
-      <Carousel autoplay>
+      <Carousel autoplay className='center'>
         {this.state.list.map(item => {
           return (
             <div className='swiper' key={item.id}>
@@ -33,6 +33,6 @@ export default class Swiper extends React.Component {
   //在线获取轮播图数据
   async getList(){
     let res = await $api['apis/swiperlist']();
-    this.setState({list:res.data.advertisementlist});
+    this.setState({list: res.data.advertisementlist});
   }
 }

@@ -17,3 +17,9 @@ code {
   width: 1200px;
   margin: 0 auto;
 }
+
+ol,ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
