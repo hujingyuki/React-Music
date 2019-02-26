@@ -1,5 +1,5 @@
 import $api from './fetch';
 
-export default {
+export {
   $api
 }

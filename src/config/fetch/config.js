@@ -3,9 +3,9 @@ export const FETCH_DEFAULT_URL = '';
 
 export const FETCH_DEFAULT_CONFIG = {
   method: 'POST',
-  // headers: {
-  //   'Content-Type': 'application/json'
-  // }, // 需要服务端支持OPTIONS请求
+  headers: new Headers({
+    'Content-Type': 'application/json'
+  }) , // 需要服务端支持OPTIONS请求
   mode: 'cors',
   body: null
 };

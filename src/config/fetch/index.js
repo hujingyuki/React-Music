@@ -111,6 +111,7 @@ class Api {
  */
 function _normoalize(options, config) {
   let reqURL = options.baseURL + options.url;
+  options._data.source = 'web';
   if (config.method === 'POST') {
     config.body = JSON.stringify(options._data);
   } else if (config.method === 'GET') {

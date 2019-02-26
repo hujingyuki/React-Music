@@ -27,6 +27,7 @@
   color: #7a8087;
 
   .center {
+    position: relative;
 
     .logo {
       display: inline-block;
@@ -42,6 +43,18 @@
       display: inline-block;
       margin-left: 30px;
       width: 450px;
+    }
+
+    .login {
+      position: absolute;
+      right: 0;
+      a {
+        color: #7a8087;
+        &:hover {
+          color: #1890ff;
+        }
+      }
+
     }
   }
 }

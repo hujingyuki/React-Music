@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
 import '@/assets/css/header.scss';
 
 export default class Header extends React.Component {
@@ -32,6 +32,17 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const userShow = sessionStorage.getItem('USERID') 
+      ? (<span className='login'>
+          <Button type='primary'>{sessionStorage.getItem('USERNAME')}</Button>
+          <Button>{sessionStorage.getItem('USERNAME')}</Button>
+        </span>)
+      : (<span className='login'>
+          <a onClick={this.login}>登录 </a>
+          <span>/ </span>
+          <a onClick={this.register}>注册</a>
+        </span>);
+
     return (
       <header className='header'>
         <div className='center'>
@@ -43,6 +54,7 @@ export default class Header extends React.Component {
               </Menu.Item>)
             })}
           </Menu>
+          { userShow }
         </div>
       </header>
     );

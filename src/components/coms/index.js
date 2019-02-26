@@ -1,9 +1,11 @@
 import Header from './header';
 import Footer from './footer';
-import Login from './login';
+import Modal from './modal';
+import Swiper from './swiper';
 
 export {
   Header,
   Footer,
-  Login
+  Modal,
+  Swiper
 }
