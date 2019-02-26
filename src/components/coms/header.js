@@ -3,9 +3,11 @@ import {Link} from 'react-router-dom';
 import { Menu, Button } from "antd";
 import '@/assets/css/header.scss';
 
+import PropTypes from 'prop-types';
+
 export default class Header extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       activeNav : '/',
       navList: [{ 
@@ -31,6 +33,10 @@ export default class Header extends React.Component {
     }
   }
 
+  componentWillMount(){
+    this.setState({activeNav: this.getCurrentPath()});
+  }
+
   render() {
     const userShow = sessionStorage.getItem('USERID') 
       ? (<span className='login'>
@@ -38,16 +44,16 @@ export default class Header extends React.Component {
           <Button>{sessionStorage.getItem('USERNAME')}</Button>
         </span>)
       : (<span className='login'>
-          <a onClick={this.login}>登录 </a>
+          <span onClick={this.login}>登录 </span>
           <span>/ </span>
-          <a onClick={this.register}>注册</a>
+          <span onClick={this.register}>注册</span>
         </span>);
 
     return (
       <header className='header'>
         <div className='center'>
           <span className="logo">React-Music</span>
-          <Menu mode='horizontal' selectedKeys={[this.state.activeNav]} onClick={this.handlerNav}>
+          <Menu mode='horizontal' selectedKeys={[this.state.activeNav]} onClick={this.handlerNav.bind(this)}>
             {this.state.navList.map(item => {
               return (<Menu.Item key={item.path}>
                 <Link to={item.path}>{item.name}</Link>
@@ -63,4 +69,14 @@ export default class Header extends React.Component {
   handlerNav(e) {
     this.setState({activeNav: e.key});
   }
+
+  getCurrentPath() {
+    const path = this.context.router;
+    const activeNav = path ? path.history.location.pathname : '/';
+    return activeNav;
+  }
+}
+
+Header.contextTypes = {
+  router: PropTypes.object.isRequired
 }
