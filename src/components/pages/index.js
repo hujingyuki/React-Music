@@ -1,6 +1,5 @@
 import React from 'react';
-import { Swiper } from '../coms';
-import IndexCom from '../coms/indexCom';
+import { Swiper, IndexCom, Learn } from '../coms';
 
 export default class Index extends React.Component {
   render(){
@@ -8,6 +7,7 @@ export default class Index extends React.Component {
       <div>
         <Swiper></Swiper>
         <IndexCom></IndexCom>
+        <Learn></Learn>
       </div>
     )
   }
