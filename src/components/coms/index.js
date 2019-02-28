@@ -4,6 +4,8 @@ import Modal from './modal';
 import Swiper from './swiper';
 import IndexCom from './indexCom';
 import Learn from './learn';
+import ComBox from './comBox';
+
 
 export {
   Header,
@@ -11,5 +13,6 @@ export {
   Modal,
   Swiper,
   IndexCom,
-  Learn
+  Learn,
+  ComBox
 }
