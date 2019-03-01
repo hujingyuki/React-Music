@@ -10,7 +10,7 @@ export default class UserModal extends React.Component {
              visible={this.props.visible}
              centered={true}
              footer={null}>
-        <Tabs defaultActiveKey={this.props.current}>
+        <Tabs activeKey={this.props.current} onChange={this.changeCurrent.bind(this)}>
           <Tabs.TabPane tab="登录" key="login">
             <Login></Login>
           </Tabs.TabPane>
@@ -24,5 +24,9 @@ export default class UserModal extends React.Component {
 
   hideModal() {
     this.props.setModalVisible(false);
+  }
+
+  changeCurrent(e) {
+    this.props.changeCurrent(e);
   }
 }

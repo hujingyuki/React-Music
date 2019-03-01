@@ -75,7 +75,8 @@ export default class Header extends React.Component {
         </div>
         <UserModal setModalVisible ={this.setModalVisible.bind(this)}
                    visible = {this.state.modalVisible}
-                   current = {this.state.modalType}></UserModal>
+                   current = {this.state.modalType}
+                   changeCurrent={this.changeTab.bind(this)}></UserModal>
       </header>
     );
   }
@@ -93,14 +94,13 @@ export default class Header extends React.Component {
   setModalVisible(flag, type){
     this.setState({ modalVisible: flag }); 
     if (type) {
-      this.setState({ modalType: type }); 
+      this.changeTab(type);
     }
   }
-  login() {
 
+  changeTab(cur){
+    this.setState({ modalType: cur }); 
   }
-
-  register(){}
 }
 
 Header.contextTypes = {
