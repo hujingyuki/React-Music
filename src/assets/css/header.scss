@@ -48,18 +48,24 @@
     .login {
       position: absolute;
       right: 0;
+      cursor: pointer;
       
       span:nth-child(2n+1) {
         &:hover {
           color: #1890ff;
         }
       }
-
     }
+    
   }
 }
 
 body :global(.ant-menu-inline .ant-menu-submenu .ant-menu-submenu-title) {
   height: 74px !important;
   line-height: 74px !important;
+}
+
+body :global(.ant-tabs-tab) {
+  margin: 0 !important;
+  font-size: 20px !important;
 }

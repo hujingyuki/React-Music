@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Menu, Button } from "antd";
 import '@/assets/css/header.scss';
+import UserModal from './modal';
 //组件没传入history的时候使用context获取
 import PropTypes from 'prop-types';
 
@@ -29,18 +30,18 @@ export default class Header extends React.Component {
       { 
         path: '/download',
         name: 'Download'
-      }]
+      }],
+      modalVisible: false,
+      modalType: 'login'
     }
   }
 
   componentWillMount(){
-    console.log('nav');
-    this.setState({activeNav: this.getCurrentPath()});
+    this.getCurrentPath();
   }
 
   componentWillReceiveProps() {
-    console.log('update');
-    this.setState({activeNav: this.getCurrentPath()});
+    this.getCurrentPath();
   }
 
   render() {
@@ -51,10 +52,11 @@ export default class Header extends React.Component {
           <Button>{sessionStorage.getItem('USERNAME')}</Button>
         </span>)
       : (<span className='login'>
-          <span onClick={this.login}>登录 </span>
+          <span onClick={this.setModalVisible.bind(this,true,'login')}>登录 </span>
           <span>/ </span>
-          <span onClick={this.register}>注册</span>
+          <span onClick={this.setModalVisible.bind(this,true,'register')}>注册</span>
         </span>);
+
     //菜单
     const items = this.state.navList.map(item => (
       <Menu.Item key={item.path}>
@@ -62,7 +64,6 @@ export default class Header extends React.Component {
       </Menu.Item>
     ));
 
-    console.log(userShow,items);
     return (
       <header className='header'>
         <div className='center'>
@@ -72,20 +73,34 @@ export default class Header extends React.Component {
           </Menu>
           { userShow }
         </div>
+        <UserModal setModalVisible ={this.setModalVisible.bind(this)}
+                   visible = {this.state.modalVisible}
+                   current = {this.state.modalType}></UserModal>
       </header>
     );
   }
 
   handlerNav(e) {
-    console.log(e)
     this.setState({activeNav: e.key});
   }
 
   getCurrentPath() {
     const path = this.context.router;
     const activeNav = path ? path.history.location.pathname : '/';
-    return activeNav;
+    this.setState({activeNav: activeNav});
   }
+
+  setModalVisible(flag, type){
+    this.setState({ modalVisible: flag }); 
+    if (type) {
+      this.setState({ modalType: type }); 
+    }
+  }
+  login() {
+
+  }
+
+  register(){}
 }
 
 Header.contextTypes = {

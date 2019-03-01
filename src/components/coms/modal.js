@@ -1,5 +1,28 @@
-import React from 'react';
+import React from 'react'
+import { Modal, Tabs } from 'antd';
+import { Login, Register } from './index';
 
-export default class Modal extends React.Component {
-  render(){ return <div></div>}
+export default class UserModal extends React.Component {
+  render(){ 
+    return (
+      <Modal onCancel={this.hideModal.bind(this)} 
+             onOk={this.hideModal.bind(this)}
+             visible={this.props.visible}
+             centered={true}
+             footer={null}>
+        <Tabs defaultActiveKey={this.props.current}>
+          <Tabs.TabPane tab="登录" key="login">
+            <Login></Login>
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="注册" key="register">
+            <Register></Register>  
+          </Tabs.TabPane>
+        </Tabs>
+      </Modal>
+    )
+  }
+
+  hideModal() {
+    this.props.setModalVisible(false);
+  }
 }
