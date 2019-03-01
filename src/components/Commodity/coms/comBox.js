@@ -19,8 +19,8 @@ export default class ComBox extends React.Component {
   } */
   render() {
     const btn =  this.props.item.isCharge 
-      ? <Button type='primary' className="leftbtn" onClick={this.toPay(this.props.item.commodityId)}>立即购买</Button>
-      : <Button className='leftbtn' onClick={this.freePay(this.props.item.commodityId)}>免费加入</Button>
+      ? <Button type='primary' className="btn" onClick={this.toPay(this.props.item.commodityId)}>立即购买</Button>
+      : <Button className='btn white' onClick={this.freePay(this.props.item.commodityId)}>免费加入</Button>
 
     const price =  this.props.item.isCharge 
       ? <h3> 套餐价:<span>￥</span><span>{this.props.item.discountPrice}</span><span>[￥{this.props.item.originalPrice}]</span></h3>
@@ -73,10 +73,6 @@ export default class ComBox extends React.Component {
    * @param type 套餐类型
    */
   getDes(type) {
-    if( type > 2 ){
-      return this.state.des[0];
-    }else {
-      return this.state.des[type];
-    }
+    return type > 2 ? this.state.des[0] : this.state.des[type];
   }
 }

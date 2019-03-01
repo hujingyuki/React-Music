@@ -44,8 +44,9 @@ export default class Header extends React.Component {
   }
 
   render() {
+    //用户登录
     const userShow = sessionStorage.getItem('USERID') 
-      ? (<span className='login'>
+    ? (<span className='login'>
           <Button type='primary'>{sessionStorage.getItem('USERNAME')}</Button>
           <Button>{sessionStorage.getItem('USERNAME')}</Button>
         </span>)
@@ -54,17 +55,20 @@ export default class Header extends React.Component {
           <span>/ </span>
           <span onClick={this.register}>注册</span>
         </span>);
+    //菜单
+    const items = this.state.navList.map(item => (
+      <Menu.Item key={item.path}>
+        <Link to={item.path}>{item.name}</Link>
+      </Menu.Item>
+    ));
 
+    console.log(userShow,items);
     return (
       <header className='header'>
         <div className='center'>
           <span className="logo">React-Music</span>
           <Menu mode='horizontal' selectedKeys={[this.state.activeNav]} onClick={this.handlerNav.bind(this)}>
-            {this.state.navList.map(item => {
-              return (<Menu.Item key={item.path}>
-                <Link to={item.path}>{item.name}</Link>
-              </Menu.Item>)
-            })}
+            {items} 
           </Menu>
           { userShow }
         </div>
@@ -73,6 +77,7 @@ export default class Header extends React.Component {
   }
 
   handlerNav(e) {
+    console.log(e)
     this.setState({activeNav: e.key});
   }
 

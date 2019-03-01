@@ -1,0 +1,20 @@
+.not-login {
+  background: #fff;
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+
+  p {
+    background: #fff url('../../../assets/images/login_tips.png') no-repeat center;
+    background-position-y: 120px;
+    padding: 520px 0 320px;
+  }
+
+
+  .btn {
+    position: absolute;
+    top: 596px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
