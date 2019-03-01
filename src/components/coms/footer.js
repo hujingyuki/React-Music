@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import '@/assets/css/footer.scss';
+import './css/footer.scss';
 
 export default class Footer extends React.Component{
   render(){

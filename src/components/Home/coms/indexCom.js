@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { $api } from '@/config';
-import '@/assets/css/indexCom.scss';
+import '../css/indexCom.scss';
 
-export default class IndexCom extends React.Component {
+class IndexCom extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -24,12 +25,12 @@ export default class IndexCom extends React.Component {
               <p className='total'>{item.type ===1 ?'初级':'中级'}闯关总人数<span>{item.totalNum}</span></p>
               <div className='com'>
                 <div className='left'>
-                  <h1>音基<span>{item.type ===1 ?'初级':'中级'}闯关</span></h1>
+                  <h1 onClick={this.goDetail.bind(this,item.type)}>音基<span>{item.type ===1 ?'初级':'中级'}闯关</span></h1>
                   <h2>{item.entitle}</h2>
                 </div>
                 <div className='right'>
                   {item.commodity.map((commodity,index)=>{
-                    return <div className='innerbox' key={'innerbox'+index}>
+                    return <div className='innerbox' key={'innerbox'+index} onClick={this.goDetail.bind(this,item.type)}>
                       <div>
                         <h1>{commodity.ctitle}</h1>
                         <h2>{commodity.entitle}</h2>
@@ -60,4 +61,11 @@ export default class IndexCom extends React.Component {
     let res = await $api['apis/getCommodityCategoryList']();
     this.setState({flowList: res.data.commodityCategory});
   }
+
+  goDetail(level){
+    let path = level === 1 ? '/primary' : '/senior';
+    this.props.history.push({pathname: path});
+  }
 }
+
+export default withRouter(IndexCom);

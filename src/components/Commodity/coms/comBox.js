@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
-import '@/assets/css/comBox.scss';
+import '../css/comBox.scss';
 
 export default class ComBox extends React.Component {
   constructor(props){
@@ -59,21 +59,12 @@ export default class ComBox extends React.Component {
 
   // 根据内容进行字符格式化处理
   formatArr(str) {
-    if (str) {
-      str = str.split('+');
-    } else {
-      str = [];
-    }
-    for (var i = 0, len = str.length; i < len; i++) {
-      var arr = str[i].split(':');
-      if (arr.length > 1) {
-        var tempstr =
-          arr[0] + "<span class='blue'>[￥" + arr[1] + ']</span>';
-        str[i] = tempstr;
-      }
-    }
-    console.log(str);
-    return str;
+    let strArr = str ? str.split('+') : [];
+    let newArr = strArr.map((str,i)=>{
+      let arr = str.split(':');
+       return arr.length > 1 ? arr[0] + "<span class='blue'>[￥" + arr[1] + ']</span>' : arr[0];
+    })
+    return newArr;
   }
   toPay(){}
   freePay(){}
@@ -88,5 +79,4 @@ export default class ComBox extends React.Component {
       return this.state.des[type];
     }
   }
-  
 }

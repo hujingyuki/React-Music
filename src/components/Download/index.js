@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/assets/css/download.scss';
+import './css/download.scss';
 
 export default class Download extends React.Component {
   constructor(){

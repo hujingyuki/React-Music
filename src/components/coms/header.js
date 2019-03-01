@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Menu, Button } from "antd";
 import '@/assets/css/header.scss';
-
+//组件没传入history的时候使用context获取
 import PropTypes from 'prop-types';
 
 export default class Header extends React.Component {
@@ -34,6 +34,12 @@ export default class Header extends React.Component {
   }
 
   componentWillMount(){
+    console.log('nav');
+    this.setState({activeNav: this.getCurrentPath()});
+  }
+
+  componentWillReceiveProps() {
+    console.log('update');
     this.setState({activeNav: this.getCurrentPath()});
   }
 

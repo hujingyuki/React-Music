@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from  'antd';
 import { $api } from '@/config';
-import '@/assets/css/swiper.scss';
+import '../css/swiper.scss';
 
 export default class Swiper extends React.Component {
   constructor(){

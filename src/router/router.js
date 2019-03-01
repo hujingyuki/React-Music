@@ -2,25 +2,25 @@ import React from 'react';
 import Bundle from './bundle';
 
 const Index = (props) => (
-  <Bundle load={() => import('../components/pages/index')}>
+  <Bundle load={() => import('../components/Home/index')}>
     {(Index) => <Index {...props}/>}
   </Bundle>
 );
 
 const Commodity = (props) => (
-  <Bundle load={() => import('../components/pages/commodity')}>
+  <Bundle load={() => import('../components/Commodity')}>
     {(Commodity) => <Commodity {...props}/>}
   </Bundle>
 );
 
 const Grade = (props) => (
-  <Bundle load={() => import('../components/pages/grade')}>
+  <Bundle load={() => import('../components/Grade')}>
     {(Grade) => <Grade {...props}/>}
   </Bundle>
 );
 
 const Download = (props) => (
-  <Bundle load={() => import('../components/pages/download')}>
+  <Bundle load={() => import('../components/Download')}>
     {(Download) => <Download {...props}/>}
   </Bundle>
 );

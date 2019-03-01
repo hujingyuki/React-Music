@@ -1,7 +1,7 @@
 import React from 'react';
 import { $api } from '@/config';
-import {ComBox} from '../coms';
-import '@/assets/css/commodity.scss';
+import { ComBox } from './coms';
+import './css/commodity.scss';
 
 export default class Commodity extends React.Component {
   constructor() {

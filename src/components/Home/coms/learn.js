@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/assets/css/learn.scss';
+import '../css/learn.scss';
 
 export default class Learn extends React.Component {
   constructor() {

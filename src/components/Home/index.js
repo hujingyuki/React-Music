@@ -1,5 +1,5 @@
 import React from 'react';
-import { Swiper, IndexCom, Learn } from '../coms';
+import { Swiper, IndexCom, Learn } from './coms';
 
 export default class Index extends React.Component {
   render(){
