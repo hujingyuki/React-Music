@@ -10,7 +10,7 @@ export default class Download extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="download">
         <div className="center">
           <div className="computer">
             <div className="computer-content">

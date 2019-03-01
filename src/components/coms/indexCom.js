@@ -16,7 +16,7 @@ export default class IndexCom extends React.Component {
 
   render() {
     return(
-      <div className='container'>
+      <div className='indexCom'>
         {this.state.flowList.map((item,index) => {
           return <div className='box' key={index}>
             <div className='center'>

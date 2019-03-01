@@ -26,7 +26,7 @@ export default class Commodity extends React.Component {
                 <p>{item.subTitle}</p>
                 <p>{item.imgSubtitle}</p>
               </div>
-              <div className='right'>
+              <div className='right-box'>
                 <ComBox item={item}></ComBox>
               </div>
             </div>
