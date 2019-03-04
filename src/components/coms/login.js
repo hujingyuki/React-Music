@@ -36,11 +36,11 @@ class LoginForm extends React.Component {
             valuePropName: 'checked',
             initialValue: true,
           })(
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>记住密码</Checkbox>
           )}
-          <span className="login-form-forgot">Forgot password</span>
+          <span className="login-form-forgot">忘记密码</span>
           <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
+            登 录
           </Button>
         </Form.Item>
       </Form>
