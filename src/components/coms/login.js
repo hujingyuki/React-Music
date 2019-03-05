@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Form, Icon, Input, Button, Checkbox,
+  Form, Icon, Input, Button
 } from 'antd';
 
 class LoginForm extends React.Component {
@@ -19,30 +19,24 @@ class LoginForm extends React.Component {
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
           {getFieldDecorator('userName', { 
-            rules: [{ required: true, message: 'Please input your username!' }],
+            rules: [{ required: true, message: '请输入用户名' }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入用户名" size="large" />
           )}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+            rules: [{ required: true, message: '请输入密码!' }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="请输入密码" size="large" />
           )}
         </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-            <Checkbox>记住密码</Checkbox>
-          )}
-          <span className="login-form-forgot">忘记密码</span>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+        <div className="forgot-div"><span>忘记密码</span></div>
+        <div className="login-form-button">
+          <Button type="primary" htmlType="submit">
             登 录
           </Button>
-        </Form.Item>
+        </div>
       </Form>
     );
   }

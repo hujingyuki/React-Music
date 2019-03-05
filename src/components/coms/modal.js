@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal, Tabs } from 'antd';
 import { Login, Register } from './index';
+import '@/assets/css/modal.scss';
 
 export default class UserModal extends React.Component {
   render(){ 
