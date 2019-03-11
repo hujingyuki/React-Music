@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Skeleton } from 'antd';
 import { $api } from '@/config';
 import '../css/indexCom.scss';
 
@@ -18,10 +19,14 @@ class IndexCom extends React.Component {
   render() {
     return(
       <div className='indexCom'>
+        <Skeleton loading={this.state.flowList.length === 0} active></Skeleton>
+        <Skeleton loading={this.state.flowList.length === 0} active></Skeleton>
         {this.state.flowList.map((item,index) => {
           return <div className='box' key={index}>
             <div className='center'>
-              <p className='shine-title'>{item.title}</p>
+              <p className='shine-title'>
+                {item.title}
+              </p>
               <p className='total'>{item.type ===1 ?'初级':'中级'}闯关总人数<span>{item.totalNum}</span></p>
               <div className='com'>
                 <div className='left'>
@@ -29,26 +34,26 @@ class IndexCom extends React.Component {
                   <h2>{item.entitle}</h2>
                 </div>
                 <div className='right'>
-                  {item.commodity.map((commodity,index)=>{
-                    return <div className='innerbox' key={'innerbox'+index} onClick={this.goDetail.bind(this,item.type)}>
-                      <div>
-                        <h1>{commodity.ctitle}</h1>
-                        <h2>{commodity.entitle}</h2>
-                        {!!commodity.ccontent && commodity.ccontent.length > 0 
-                          ? (<div className="content">
-                              <p>所含内容</p>
-                              <ul>
-                                {commodity.ccontent.split('+').map((li,index) =>{
-                                  return <li key={'li'+index}>{li}</li>
-                                })}    
-                              </ul>
-                            </div>)
-                          : (<div className="devlop"><p>即将开放<br/>敬请期待</p></div>)
-                        }
-                      </div>
+                {item.commodity.map((commodity,index)=>{
+                  return <div className='innerbox' key={'innerbox'+index} onClick={this.goDetail.bind(this,item.type)}>
+                    <div>                        
+                      <h1>{commodity.ctitle}</h1>
+                      <h2>{commodity.entitle}</h2>
+                      {!!commodity.ccontent && commodity.ccontent.length > 0 
+                        ? (<div className="content">
+                            <p>所含内容</p>
+                            <ul>
+                              {commodity.ccontent.split('+').map((li,index) =>{
+                                return <li key={'li'+index}>{li}</li>
+                              })}    
+                            </ul>
+                          </div>)
+                        : (<div className="devlop"><p>即将开放<br/>敬请期待</p></div>)
+                      }
                     </div>
-                  })}
-                </div>
+                  </div>
+                })}
+              </div>
               </div>
             </div>
           </div>

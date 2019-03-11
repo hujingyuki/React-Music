@@ -1,6 +1,7 @@
 import React from 'react';
 import { $api } from '@/config';
 import { ComBox } from './coms';
+import { Skeleton } from 'antd';
 import './css/commodity.scss';
 
 export default class Commodity extends React.Component {
@@ -19,6 +20,9 @@ export default class Commodity extends React.Component {
   render(){
     return (
       <div className='center'>
+        <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
+        <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
+        <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
         {
           this.state.commodityList.map((item,index)=> {
             return <div className="unitbox" key={index}>
