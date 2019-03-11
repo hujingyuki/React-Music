@@ -35,8 +35,8 @@ class IndexCom extends React.Component {
                 </div>
                 <div className='right'>
                 {item.commodity.map((commodity,index)=>{
-                  return <div className='innerbox' key={'innerbox'+index} onClick={this.goDetail.bind(this,item.type)}>
-                    <div>                        
+                  return <div className='outerbox' key={'innerbox'+index} onClick={this.goDetail.bind(this,item.type)}> 
+                    <div className='innerbox'>
                       <h1>{commodity.ctitle}</h1>
                       <h2>{commodity.entitle}</h2>
                       {!!commodity.ccontent && commodity.ccontent.length > 0 

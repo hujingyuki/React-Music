@@ -23,19 +23,17 @@ export default class Commodity extends React.Component {
         <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
         <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
         <Skeleton loading={this.state.commodityList.length === 0} active avatar></Skeleton>
-        {
-          this.state.commodityList.map((item,index)=> {
-            return <div className="unitbox" key={index}>
-              <div className={'unitbox-box-card ' + this.state.classList[item.type-1]}>
-                <p>{item.subTitle}</p>
-                <p>{item.imgSubtitle}</p>
-              </div>
-              <div className='right-box'>
-                <ComBox item={item}></ComBox>
-              </div>
+        {this.state.commodityList.map((item,index)=> {
+          return <div className="unitbox" key={index}>
+            <div className={'unitbox-box-card ' + this.state.classList[item.type-1]}>
+              <p>{item.subTitle}</p>
+              <p>{item.imgSubtitle}</p>
             </div>
-          })
-        }
+            <div className='right-box'>
+              <ComBox item={item}></ComBox>
+            </div>
+          </div>
+        })}
       </div>
     )
   }
